@@ -36,6 +36,28 @@ Proposed model:
 
 MAE tells the average redshift error. RMSE penalizes large mistakes more strongly. Bias shows whether the model tends to over-predict or under-predict redshift.
 
+Example CSV format:
+
+```csv
+u,g,r,i,z,redshift
+19.12,18.44,18.01,17.82,17.70,0.082
+21.03,20.12,19.58,19.21,19.04,0.214
+```
+
+Run after placing the real galaxy CSV in `data/`:
+
+```powershell
+python src/02_tabular_redshift.py --input data/galaxy_redshift.csv --target redshift --output outputs/tabular_redshift_predictions.csv
+```
+
+If the redshift column is named `z` instead of `redshift`, use:
+
+```powershell
+python src/02_tabular_redshift.py --input data/galaxy_redshift.csv --target z --output outputs/tabular_redshift_predictions.csv
+```
+
+Expected final answer for this part: the model learns a relationship between galaxy photometric bands and redshift. Its performance should be reported using MAE, RMSE, and bias on a held-out test set.
+
 ## 3. Galaxy Redshift From Images
 
 For image-based redshift prediction, each galaxy image is converted into numerical visual features. The included script extracts simple color and structure features from each image, then trains a ridge regression model.
