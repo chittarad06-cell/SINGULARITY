@@ -1,4 +1,6 @@
-# Space Data Analysis
+# SINGULARITY
+
+## Space Data Analysis
 
 This folder contains a complete starting solution for the four tasks in `Space Data Analysis.pdf`.
 
@@ -18,4 +20,3 @@ python src/01_meteor_detection.py --input data/meteor_data.csv --output outputs/
 ```
 
 For the other tasks, place your datasets in `data/` and run the matching script with `--help` to see the required arguments.
-
