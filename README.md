@@ -71,6 +71,25 @@ The script extracts visual features such as color, brightness spread, and galaxy
 - RMSE: `0.00902`
 - Bias: `-0.00902`
 
-## Part 4
+## Part 4: Exoplanet Transit Detection And Tidal Locking
 
-For Part 4, place the needed light curve dataset in `data/` and run the matching script with `--help` to see the required arguments.
+Part 4 detects exoplanets from light curve data. A light curve is a table of star brightness over time. When a planet passes in front of the star, the brightness drops slightly, creating a transit dip.
+
+A sample light curve is included:
+
+```text
+data/sample_lightcurve.csv
+```
+
+Run the sample:
+
+```powershell
+python src/04_exoplanet_transit_tidal_locking.py --lightcurve data/sample_lightcurve.csv --time-col time --flux-col flux --period-days 3.2 --semi-major-axis-au 0.045 --output outputs/sample_transit_events.csv
+```
+
+Sample result:
+
+- Transit-like dips detected: `8`
+- Likely tidally locked: `yes`
+
+This planet is likely tidally locked because its orbital period is short and it orbits very close to its star.

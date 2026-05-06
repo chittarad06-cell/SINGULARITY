@@ -105,3 +105,23 @@ Planets most likely to be tidally locked are close to their stars. A practical r
 - long-period planets farther away: less likely or require more detailed calculation
 
 The included script detects transit-like dips from light curve CSV data and can flag likely tidal locking when orbital period or orbital distance is provided.
+
+Sample files included:
+
+```text
+data/sample_lightcurve.csv
+outputs/sample_transit_events.csv
+```
+
+Run:
+
+```powershell
+python src/04_exoplanet_transit_tidal_locking.py --lightcurve data/sample_lightcurve.csv --time-col time --flux-col flux --period-days 3.2 --semi-major-axis-au 0.045 --output outputs/sample_transit_events.csv
+```
+
+Sample result:
+
+- Transit-like dips detected: `8`
+- Likely tidally locked: `yes`
+
+Expected final answer for this part: transit signals are identified as repeated decreases in stellar flux. Close-in planets with short orbital periods are likely tidally locked because gravitational tidal forces synchronize the planet's rotation with its orbit.
