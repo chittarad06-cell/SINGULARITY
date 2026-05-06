@@ -45,4 +45,32 @@ The script reports:
 
 ## Remaining Parts
 
-For Parts 3 and 4, place the needed datasets in `data/` and run the matching script with `--help` to see the required arguments.
+## Part 3: Galaxy Redshift From Images
+
+Part 3 predicts galaxy redshift using image-based galaxy features. A small sample image dataset is included here:
+
+```text
+data/sample_galaxy_images/
+data/sample_image_redshift_labels.csv
+```
+
+Run the sample:
+
+```powershell
+python src/03_image_redshift.py --labels data/sample_image_redshift_labels.csv --image-root data --output outputs/sample_image_redshift_predictions.csv
+```
+
+The labels CSV must contain:
+
+- `image` - image path
+- `redshift` - target redshift value
+
+The script extracts visual features such as color, brightness spread, and galaxy center, then trains a ridge regression model. The sample run produced:
+
+- MAE: `0.00902`
+- RMSE: `0.00902`
+- Bias: `-0.00902`
+
+## Part 4
+
+For Part 4, place the needed light curve dataset in `data/` and run the matching script with `--help` to see the required arguments.

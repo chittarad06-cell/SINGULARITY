@@ -71,6 +71,27 @@ Useful image information includes:
 
 A stronger final solution could use a convolutional neural network, but the provided feature-based approach is easier to explain and run on a normal laptop.
 
+Sample files included:
+
+```text
+data/sample_galaxy_images/
+data/sample_image_redshift_labels.csv
+```
+
+Run:
+
+```powershell
+python src/03_image_redshift.py --labels data/sample_image_redshift_labels.csv --image-root data --output outputs/sample_image_redshift_predictions.csv
+```
+
+Sample result:
+
+- MAE: `0.00902`
+- RMSE: `0.00902`
+- Bias: `-0.00902`
+
+Expected final answer for this part: galaxy images contain visual information such as color, size, brightness concentration, and structure. These features can be converted into numerical predictors and used to estimate redshift. Model quality is evaluated by comparing predicted redshift with known redshift labels on test images.
+
 ## 4. Exoplanet Transits And Tidal Locking
 
 Tidal locking happens when a planet's rotation period becomes equal to its orbital period, so the same side always faces its star. It is important for exoplanets because it can strongly affect temperature, atmosphere, habitability, and climate.
